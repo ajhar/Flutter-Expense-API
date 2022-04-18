@@ -25,7 +25,7 @@ class ExpenseResource extends JsonResource
             'id' => $this->id,
             'date' => $this->date,
             'title' => $this->title,
-            'amount' => $this->amount
+            'amount' => round($this->amount,2)
         ];
     }
 }
