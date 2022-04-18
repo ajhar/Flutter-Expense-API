@@ -29,7 +29,7 @@ php artisan migrate --seed
     GET /api/expenses?page=1 HTTP/1.1
 
 ### Get expense
-    GET /flutter_api/public/api/expenses/{expense-id} HTTP/1.1
+    GET /api/expenses/{expense-id} HTTP/1.1
 
 ### Add new expense
     POST /api/expenses HTTP/1.1
@@ -41,7 +41,7 @@ php artisan migrate --seed
     }
 
 ### Update existing expense
-    PUT /flutter_api/public/api/expenses/{expense-id} HTTP/1.1
+    PUT /api/expenses/{expense-id} HTTP/1.1
     Content-Type: application/json
     {
         "date": "2022-04-19",
@@ -50,7 +50,7 @@ php artisan migrate --seed
     }
 
 ### Delete expense
-    DELETE /flutter_api/public/api/expenses/{expense-id} HTTP/1.1
+    DELETE /api/expenses/{expense-id} HTTP/1.1
 
 ### Get summary of last 7 days expense
-    GET /flutter_api/public/api/expenses/summary HTTP/1.1
+    GET /api/expenses/summary HTTP/1.1
