@@ -38,7 +38,7 @@ class ExpenseService
             $day = Carbon::createFromFormat('Y-m-d', $record->date)->format('D');
             $summary[] = [
                 'day' => $day,
-                'amount' => $record->amount,
+                'amount' => round($record->amount,2),
                 'percentage' => round(($record->amount / $totalAmount) * 100, 2)
             ];
         }
