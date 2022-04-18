@@ -12,4 +12,10 @@ class Expense extends Model
     protected $table = 'expenses';
 
     protected $fillable = ['date', 'title', 'amount'];
+
+    public static function list()
+    {
+        return self::orderBy('date')
+            ->paginate();
+    }
 }
