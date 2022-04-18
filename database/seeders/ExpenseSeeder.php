@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Expense;
-use Database\Factories\ExpenseFactory;
 use Illuminate\Database\Seeder;
 
 class ExpenseSeeder extends Seeder

@@ -8,7 +8,6 @@ use App\Http\Resources\ExpenseResource;
 use App\Http\Resources\ExpenseSummaryResource;
 use App\Models\Expense;
 use App\Services\ExpenseService;
-use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
