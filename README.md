@@ -8,7 +8,7 @@ CRUD for daily expenses and get summary for last 7 days
 ## Installation
 
 ```bash
-composer install
+composer update OR composer install
 cp .env.example .env OR copy .env.example .env
 php artisan key:generate
 ```
