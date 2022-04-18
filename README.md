@@ -16,6 +16,11 @@ php artisan key:generate
 - Create database and update the database credentials on .env file
 
 ```bash
+php artisan migrate
+php artisan db:seed
+
+OR 
+
 php artisan migrate --seed
 ```
 
