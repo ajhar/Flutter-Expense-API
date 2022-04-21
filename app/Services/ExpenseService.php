@@ -10,16 +10,21 @@ class ExpenseService
 {
     public static function store($data)
     {
-        $personalExpense = new Expense();
-        if (isset($data['id'])) {
-            $personalExpense->id = $data['id'];
-            $personalExpense->exists = true;
-        }
-        $personalExpense->date = $data['date'];
-        $personalExpense->title = $data['title'];
-        $personalExpense->amount = $data['amount'];
-        $personalExpense->save();
-        return $personalExpense;
+        $expense = new Expense();
+        $expense->date = $data['date'];
+        $expense->title = $data['title'];
+        $expense->amount = $data['amount'];
+        $expense->save();
+        return $expense;
+    }
+
+    public static function update($expense, $data)
+    {
+        $expense->date = $data['date'];
+        $expense->title = $data['title'];
+        $expense->amount = $data['amount'];
+        $expense->save();
+        return $expense;
     }
 
     public static function getSummary()
@@ -38,7 +43,7 @@ class ExpenseService
             $day = Carbon::createFromFormat('Y-m-d', $record->date)->format('D');
             $summary[] = [
                 'day' => $day,
-                'amount' => round($record->amount,2),
+                'amount' => round($record->amount, 2),
                 'percentage' => round(($record->amount / $totalAmount) * 100, 2)
             ];
         }

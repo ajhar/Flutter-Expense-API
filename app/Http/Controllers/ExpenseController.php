@@ -44,9 +44,9 @@ class ExpenseController extends Controller
      * @param int $id
      * @return ExpenseResource
      */
-    public function show($id)
+    public function show(Expense $expense)
     {
-        return new ExpenseResource(Expense::findOrFail($id));
+        return new ExpenseResource($expense);
     }
 
     /**
@@ -56,16 +56,15 @@ class ExpenseController extends Controller
      * @param int $id
      * @return ExpenseResource
      */
-    public function update(UpdateExpenseRequest $request, $id)
+    public function update(UpdateExpenseRequest $request, Expense $expense)
     {
-        $expense = [
-            'id' => $id,
+        $data = [
             'date' => $request->date,
             'title' => $request->title,
             'amount' => $request->amount
         ];
 
-        return new ExpenseResource(ExpenseService::store($expense));
+        return new ExpenseResource(ExpenseService::update($expense, $data));
     }
 
     /**
@@ -74,9 +73,8 @@ class ExpenseController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Expense $expense)
     {
-        $expense = Expense::findOrFail($id);
         $expense->delete();
         return response()->noContent(200);
     }
