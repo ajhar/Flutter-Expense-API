@@ -21,11 +21,17 @@ class ExpenseResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id' => $this->id,
-            'date' => $this->date,
-            'title' => $this->title,
-            'amount' => round($this->amount,2)
-        ];
+        if (isset($this->id))
+            $data = [
+                'id' => $this->id,
+                'date' => $this->date,
+                'title' => $this->title,
+                'amount' => round($this->amount, 2),
+            ];
+
+        if (isset($this->summary))
+            $data['summary'] = $this->summary;
+
+        return $data;
     }
 }

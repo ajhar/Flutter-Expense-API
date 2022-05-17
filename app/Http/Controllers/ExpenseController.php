@@ -8,6 +8,7 @@ use App\Http\Resources\ExpenseResource;
 use App\Http\Resources\ExpenseSummaryResource;
 use App\Models\Expense;
 use App\Services\ExpenseService;
+use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
@@ -46,6 +47,8 @@ class ExpenseController extends Controller
      */
     public function show(Expense $expense)
     {
+        $summary = ExpenseService::getSummary();
+        $expense->summary = $summary;
         return new ExpenseResource($expense);
     }
 
@@ -75,8 +78,11 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
-        $expense->delete();
-        return response()->noContent(200);
+        //$expense->delete();
+        $summary = ExpenseService::getSummary();
+        $request = new Request();
+        $request->merge(['summary' => $summary]);
+        return new ExpenseResource($request);
     }
 
     public function getSummary()

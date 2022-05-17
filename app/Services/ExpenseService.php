@@ -15,6 +15,7 @@ class ExpenseService
         $expense->title = $data['title'];
         $expense->amount = $data['amount'];
         $expense->save();
+        $expense->summary = self::getSummary();
         return $expense;
     }
 
@@ -24,6 +25,7 @@ class ExpenseService
         $expense->title = $data['title'];
         $expense->amount = $data['amount'];
         $expense->save();
+        $expense->summary = self::getSummary();
         return $expense;
     }
 
