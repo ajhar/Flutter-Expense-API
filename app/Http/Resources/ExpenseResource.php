@@ -36,13 +36,4 @@ class ExpenseResource extends JsonResource
 
         return $data;
     }
-
-    public function with($request)
-    {
-        return [
-            'meta' => [
-                'key' => 'value',
-            ],
-        ];
-    }
 }
