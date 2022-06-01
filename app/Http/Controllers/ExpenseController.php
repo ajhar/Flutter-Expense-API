@@ -19,7 +19,9 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        return ExpenseResource::collection(Expense::list());
+        return ExpenseResource::collection(Expense::list())->additional([
+            'summary' => ExpenseService::getSummary()
+        ]);
     }
 
     /**

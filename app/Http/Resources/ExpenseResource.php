@@ -29,9 +29,20 @@ class ExpenseResource extends JsonResource
                 'amount' => round($this->amount, 2),
             ];
 
-        if (isset($this->summary))
+        if (isset($this->summary)){
             $data['summary'] = $this->summary;
+        }
+
 
         return $data;
+    }
+
+    public function with($request)
+    {
+        return [
+            'meta' => [
+                'key' => 'value',
+            ],
+        ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\ExpenseService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +16,9 @@ class Expense extends Model
 
     public static function list()
     {
-        return self::orderBy('date')
+        $list = self::orderBy('date')
             ->paginate();
+
+        return $list;
     }
 }
