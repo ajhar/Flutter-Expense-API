@@ -80,7 +80,7 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
-        //$expense->delete();
+        $expense->delete();
         $summary = ExpenseService::getSummary();
         $request = new Request();
         $request->merge(['summary' => $summary]);
